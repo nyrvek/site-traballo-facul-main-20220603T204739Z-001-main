@@ -1,0 +1,194 @@
+:root {
+  --cor-fundo: #1f2447;
+  --cor-houver: rgb(99, 100, 105);
+  --cor-jogo: #c1c1c1;
+  --cor-titulo-jogo: #0c1b2f;
+  --cor-menu: #0a1c35;
+}
+body {
+  margin: 0;
+  background-color: #081f39;
+}
+h1 {
+  font-size: 50px;
+  color: var(--cor-jogo);
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  color: var(--cor-jogo);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#nav_menu a:hover {
+  background: rgb(1, 1, 37);
+  border-radius: 10px;
+}
+#logo {
+  font-size: 50px;
+  font-weight: bold;
+}
+#logo:hover {
+  margin-left: 10px;
+  background: none;
+  transition: 0.8s;
+}
+#logo img {
+  height: 100px;
+}
+#header {
+  box-sizing: border-box;
+  height: 70px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--cor-menu);
+}
+#menu {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+#menu a {
+  display: block;
+  padding: 6px;
+}
+#botao_menu {
+  display: none;
+  color: var(--cor-jogo);
+}
+.jogo {
+  margin: 0;
+  padding: 0;
+}
+#jogo1 {
+  background-color: var(--cor-titulo-jogo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#jogo1 h1 {
+  font-size: 50px;
+  color: var(--cor-jogo);
+}
+
+#descricao_jogo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-flex;
+  color: var(--cor-jogo);
+}
+/*em capa do jogo esta a propriedade para mesclar imagem e texto na mesma linha*/
+#capa_do_jogo {
+  float: left;
+  border: transparent thin solid;
+  padding: 5px;
+  margin: 0px 10px 10px 0;
+  max-width: 300px;
+}
+.cards {
+  perspective: 500px;
+  display: inline-flex;
+  margin-left: 100px;
+}
+
+.card {
+  width: 200px;
+  height: 250px;
+  /*background: url(/imagens/magus.gif) center no-repeat;*/
+  /*background-size: cover;*/
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.5s;
+}
+#magus {
+  background: url(/chrono/imagens/magus.gif) center no-repeat;
+}
+#lucca {
+  background: url(/chrono/imagens/mns.gif) center no-repeat;
+}
+#froag {
+  background: url(/chrono/imagens/froag.gif) center no-repeat;
+}
+#chrono {
+  background: url(/chrono/imagens/chrono.gif) center no-repeat;
+}
+.card:hover {
+  transform: translateZ(10px) rotateX(20deg) rotateY(30deg);
+}
+.card-title {
+  color: var(--cor-jogo);
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  transform: translateY(-50%);
+  transition: transform 0.5s;
+}
+.card:hover .card-title {
+  transform: translateZ(50px);
+}
+@media (max-width: 600px) {
+  #menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    right: 0px;
+    background-color: var(--cor-fundo);
+    height: 0px;
+    transition: 0.6s;
+    z-index: 1000;
+    visibility: hidden;
+    overflow-y: hidden;
+  }
+
+  #nav_menu.active #menu {
+    height: calc(100vh - 70px);
+    visibility: visible;
+    overflow-y: auto;
+  }
+  #menu a {
+    padding: 16px 0;
+    margin: 0 16px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  }
+  #botao_menu {
+    display: flex;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  #icone_hamburguer {
+    display: block;
+    border-top: 2px solid;
+    width: 20px;
+  }
+  #icone_hamburguer::after,
+  #icone_hamburguer::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #nav_menu.active #icone_hamburguer {
+    border-top-color: transparent;
+  }
+  #nav_menu.active #icone_hamburguer::before {
+    transform: rotate(135deg);
+  }
+  #nav_menu.active #icone_hamburguer::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}

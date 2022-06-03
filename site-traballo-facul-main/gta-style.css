@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --cor-fundo: #1f2447;
+    --cor-houver: rgb(99, 100, 105);
+    --cor-jogo: #c1c1c1;
+    --cor-titulo-jogo: #0c1b2f;
+    --cor-menu: #000000;
+}
+
+
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: var(--cor-jogo);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav_menu a:hover {
+    background: rgb(116, 129, 20);
+    border-radius: 10px;
+}
+
+#logo {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#logo:hover {
+    margin-left: 10px;
+    background: none;
+    transition: 0.8s;
+}
+
+#logo img {
+    height: 100px;
+}
+
+#header {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 70px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--cor-menu);
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+#menu a {
+    display: block;
+    padding: 6px;
+}
+
+#botao_menu {
+    display: none;
+    color: var(--cor-jogo);
+}
+
+@media (max-width: 600px) {
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background-color: var(--cor-fundo);
+        height: 0px;
+        transition: 0.6s;
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #nav_menu.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    #menu a {
+        padding: 16px 0;
+        margin: 0 16px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    }
+
+    #botao_menu {
+        display: flex;
+        padding: 8px 16px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    #icone_hamburguer {
+        display: block;
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    #icone_hamburguer::after,
+    #icone_hamburguer::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    #nav_menu.active #icone_hamburguer {
+        border-top-color: transparent;
+    }
+
+    #nav_menu.active #icone_hamburguer::before {
+        transform: rotate(135deg);
+    }
+
+    #nav_menu.active #icone_hamburguer::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
+
+.inicio {
+    height: 450px;
+    background-image: url(./img/GTA.png);
+    margin-top: -3px;
+}
+
+.h1 {
+
+    color: rgb(6, 2, 2);
+    text-align: center;
+    animation: zoomInDown;
+    animation-duration: 2s;
+    font-size: 70px;
+    text-shadow: 2px 2px 8px #FF0000;
+
+}
+
+.p {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    animation: zoomInDown;
+    animation-duration: 2s;
+    animation-delay: 0.1s;
+    font-size: 25px;
+}
+
+.historia {
+    width: 700px;
+    height: 50px;
+    background-color: #1f2447;
+    align-items: center;
+    text-align: center;
+    justify-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+.textHistoria {
+    width: 500px;
+    text-align: center;
+    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto; 
+}
